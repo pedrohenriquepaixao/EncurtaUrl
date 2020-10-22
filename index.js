@@ -1,12 +1,13 @@
 import express from 'express';
 import { promises as fs} from 'fs';
 import shortid from 'shortid';
-
+import cors from 'cors';
 
 const app = express();
 
 const { readFile, writeFile } = fs;
 
+app.use(cors());
 app.use(express.json())
 app.set('view engine', 'ejs')
 app.use(express.urlencoded( {extended: false }))
