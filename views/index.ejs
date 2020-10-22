@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encurtador de links!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Encurtador De Links </h2>
+
+        <form method="POST" action="/">
+            <div class="row">
+                <div class="col s12 m10 l10"><span class="flow-text"><input id='addr' name="addr" type='text'> </span></div>
+                <div class="col s12 m2 l2"><span class="flow-text"><button class='waves-effect waves-light btn' type='submit'>ENCURTAR</button></span></div>
+              </div>  
+        </form>
+
+
+        <table>
+            <thead>
+              <tr>
+                  <th>URL Orginal</th>
+                  <th>URL Encurtada</th>
+                  <th>Clicks na URL</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <% shortUrls.forEach(shortUrl => {%>
+              <tr>
+                <td><a target="_blank" rel="noopener" href='<%= shortUrl.addr %>'><%= shortUrl.addr %></a></td>
+                <td><a target="_blank" rel="noopener" href='<%=urlServer%><%= shortUrl.shortUrl %>'><%= shortUrl.shortUrl %></a></td>
+                <td><%= shortUrl.numAccess %></td>
+              </tr>
+              <% });  %>
+            </tbody>
+          </table> 
+    </div>
+</body>
+</html>
