@@ -58,7 +58,7 @@ app.get("/:shortUrl", async (req,res)=>{
 });
 
 
-app.listen(8081, async () => {
+app.listen(process.env.PORT || 3000, async () => {
     console.log("Subiu o APP")
     global.data = JSON.parse(await readFile('./db/bancoUrl.json'));
     try{
