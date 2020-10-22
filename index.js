@@ -35,7 +35,7 @@ app.post("/", async (req, res) => {
             data.Urls.push(Url);
         
             await writeFile('./db/bancoUrl.json', JSON.stringify(data,null,2))
-            res.redirect("http://localhost:8081")
+            res.redirect("./")
             
         }else{
             res.send("O link enviado já esta cadastrado no banco de dados")
